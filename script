@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Requires FFMPEG installed ##
+## Converts WMA audio files to MP3 and moves WMA files into subfolder
+
+mkdir original
+
+for file in *.wma; do 
+	ffmpeg -i "${file}"  -acodec libmp3lame -ab 192k "${file/.wma/.mp3}"; 
+	mv "${file}" ./original	
+donele/.wma/.mp3}"; 
+	mv "${file}" ./original	
+done
