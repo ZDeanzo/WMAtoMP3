@@ -3,12 +3,17 @@
 ## Requires FFMPEG installed ##
 ## Converts WMA audio files to MP3 and moves WMA files into subfolder
 
+
+
+# check to see if origional folder exits, and create it if not
+
 DIR=./original
 if [ ! -d "$DIR" ];
 then
 	mkdir original
 fi
 
+#convert to mp3 and move WMA to original folder
 
 for file in *.wma; do
 	ffmpeg -i "${file}"  -acodec libmp3lame -ab 192k "${file/.wma/.mp3}";
